@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+df = pd.read_csv("StudentsPerformance.csv")
+
+# Randomly select 50 students
+df_50 = df.sample(n=50, random_state=42)
+
+print(df_50.head())
+gender_count = df_50["gender"].value_counts()
+
+plt.figure(figsize=(6, 6))
+
+plt.pie(
+    gender_count,
+    labels=gender_count.index,
+    autopct="%1.1f%%"
+)
+
+plt.title("Gender Distribution")
+
+plt.show()

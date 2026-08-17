@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+df = pd.read_csv("StudentsPerformance.csv")
+
+# Randomly select 50 students
+df_50 = df.sample(n=50, random_state=42)
+
+print(df_50.head())
+
+plt.figure(figsize=(8, 5))
+
+plt.hist(df_50["math score"], bins=10)
+
+plt.xlabel("Math Score")
+plt.ylabel("Number of Students")
+plt.title("Distribution of Math Scores")
+
+plt.show()
